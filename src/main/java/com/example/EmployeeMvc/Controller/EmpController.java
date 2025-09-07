@@ -28,7 +28,7 @@ public class EmpController {
         return "employee-form";
     }
 
-    @PostMapping("/employee /save")
+    @PostMapping("/employee/save")
     public String saveEmployee(@ModelAttribute ("employee") Employee emp){
         empService.save(emp);
         return "redirect:/employees";
