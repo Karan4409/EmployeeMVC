@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
+</head>
+<body>
+<h2>Employee Form</h2>
+
+<form th:action="@{/employee/save}" th:object="${employee}" method="post">
+    <!-- Hidden ID (for Edit case, stays empty for Add) -->
+    <input type="hidden" th:field="*{id}" />
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <td><input type="text" th:field="*{firstName}" /></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td><input type="text" th:field="*{lastName}" /></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <button type="submit">Save</button>
+                <a th:href="@{/employees}">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
