@@ -10,7 +10,7 @@ public class EmployeeMvcApplication {
 
 	public static void main(String[] args) {
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
-		String rawPassword = "1234";
+		String rawPassword = "rony@143";
 		String encodedPassword = encoder.encode(rawPassword);
 		System.out.println("BCrypt hash: " + encodedPassword);
 

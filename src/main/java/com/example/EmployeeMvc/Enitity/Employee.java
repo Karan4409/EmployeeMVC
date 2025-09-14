@@ -8,18 +8,18 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     private String firstName;
     private String lastName;
     private String email;
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        id = id;
     }
 
     public String getFirstName() {
