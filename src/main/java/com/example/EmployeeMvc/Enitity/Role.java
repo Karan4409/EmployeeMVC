@@ -41,3 +41,11 @@ public class Role {
 // ROLE_USER → Basic access, only view own profile or limited employee data.
 
 // ROLE_GUEST → Very limited access, maybe just login.
+
+//ADMIN → full control (/employees, /employee/**)
+//
+// MANAGER, HR → can view list (/employees)
+//
+// USER → can view list (/employees)
+//
+// GUEST → no login, can only access /customLogin

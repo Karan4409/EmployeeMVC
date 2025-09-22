@@ -72,9 +72,9 @@ public class AppUser {
     }
 
     // Users :
-    // Karan : 1234
-    // Rahul : rahul@999 - > $2a$10$BSJtxIf.iYuGXhdTF4RNr.WAZ6qMlAPzNuGL0/mRZd6Qk5o.mPrQO
-    // siddhu : sid@967 -> $2a$10$nBV/b1Nydb6R4JdtfyemGeT1NX/fjfm0MpV88WCx2/W86R65bcflW
-    // Ronak : rony@143 -> $2a$10$Tdh6aHsGUbWKk0b.96khNe6JECCJmH1FKuCL6youPPPO/C6JNNeDW
+    // Karan : 1234 -> ADMIN
+    // Rahul : rahul@999 - > $2a$10$BSJtxIf.iYuGXhdTF4RNr.WAZ6qMlAPzNuGL0/mRZd6Qk5o.mPrQO -> Manager
+    // siddhu : sid@967 -> $2a$10$nBV/b1Nydb6R4JdtfyemGeT1NX/fjfm0MpV88WCx2/W86R65bcflW -> HR
+    // Ronak : rony@143 -> $2a$10$Tdh6aHsGUbWKk0b.96khNe6JECCJmH1FKuCL6youPPPO/C6JNNeDW -> User/Guest
 
 }

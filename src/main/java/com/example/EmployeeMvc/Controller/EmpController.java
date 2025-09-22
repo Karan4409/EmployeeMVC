@@ -3,6 +3,7 @@ package com.example.EmployeeMvc.Controller;
 import com.example.EmployeeMvc.Enitity.Employee;
 import com.example.EmployeeMvc.Service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class EmpController {
     }
 
     @GetMapping("/employee/new")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     public String addNewEmployee(Model model){  // emp is not passed to save; instead it acts as a binder which helps spring to bind Employee filed to emp and only fields[HTML content] are passed as HTTP is a statelesss protocol
         Employee emp = new Employee();
         model.addAttribute("employee", emp);
@@ -35,6 +37,7 @@ public class EmpController {
     }
 
     @GetMapping ("employee/edit/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     public String updateEmployee(@PathVariable(value = "id") long id, Model model){
         Optional<Employee> empWithId = empService.findById(id);
         model.addAttribute("employee", empWithId);
@@ -42,6 +45,7 @@ public class EmpController {
     }
 
     @DeleteMapping("employee/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public String deleteEmployee(@PathVariable(value = "id") long id){
         empService.delete(id);
         return "redirect:/employees";
@@ -50,6 +54,11 @@ public class EmpController {
     @GetMapping("/customLogin")
     public String showLoginPage(){
         return "login";
+    }
+
+    @GetMapping("/access-denied")
+    public String unautherizedAcess(){
+        return "unauth";
     }
 
 
