@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -18,9 +20,12 @@ public class EmpController {
 
     @GetMapping("/employees")
     public String showAllemployees(Model model){
-        model.addAttribute("employees", empService.findAllEmployee()); // This will fetch all the employees from the Service and add to Model(employee) now in html-list iterator will iterate from each employee and display it
+        List<Employee> employees = empService.findAllEmployee();
+        if(employees == null) employees = Collections.emptyList();
+        model.addAttribute("employees", employees);
         return "employee-list";
     }
+
 
     @GetMapping("/employee/new")
     @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
